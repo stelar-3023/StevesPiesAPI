@@ -13,7 +13,7 @@ let pies = [
 
 // Create GET to return a list of all pies (next is middleware - error handling)
 router.get("/", function (req, res, next) {
-  res.send(pies);
+  res.status(200).send(pies);
 });
 
 // Configure router so all routes are prefixed with api/v1
