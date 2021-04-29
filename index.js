@@ -5,15 +5,19 @@ let app = express();
 // Use the express Router object
 let router = express.Router();
 let pies = [
-  {"id": 1, "name": "Apple"},
-  {"id": 2, "name": "Cherry"},
-  {"id": 3, "name": "Peach"},
-  
-]
+  { id: 1, name: "Apple" },
+  { id: 2, name: "Cherry" },
+  { id: 3, name: "Peach" },
+];
 
 // Create GET to return a list of all pies (next is middleware - error handling)
 router.get("/", function (req, res, next) {
-  res.status(200).send(pies);
+  res.status(200).json({
+    status: 200,
+    statusText: "OK",
+    message: "All pies retrieved.",
+    data: pies,
+  });
 });
 
 // Configure router so all routes are prefixed with api/v1
